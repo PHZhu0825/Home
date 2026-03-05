@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carry home 選品大調查
+</title>
+<style>
+:root {
+--bg-color: #f1f8e9; 
+--accent-green: #aed581; 
+--paper-color: #ffffff; 
+--text-black-bold: #000000; 
+--text-black-light: #333333; 
+}
+
+/* 修正滑動問題：確保 html 和 body 允許滾動 */
+html, body {
+height: auto;
+min-height: 100%;
+overflow-x: hidden;
+overflow-y: auto;
+background-color: var(--bg-color);
+}
+
+body {
+font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+margin: 0;
+padding: 20px 10px;
+display: flex;
+justify-content: center;
+}
+
+.container {
+max-width: 500px;
+width: 100%;
+background: var(--paper-color);
+padding: 30px 20px;
+border-radius: 30px; 
+box-shadow: 0 10px 25px rgba(174, 213, 129, 0.2); 
+box-sizing: border-box;
+margin-bottom: 20px; /* 增加底部間距 */
+}
+
+header {
+text-align: center;
+margin-bottom: 25px;
+}
+
+h1 {
+font-size: 1.5rem;
+color: var(--text-black-bold);
+font-weight: 900; 
+margin: 0 0 15px 0;
+}
+
+.intro {
+font-size: 0.9rem;
+line-height: 1.6;
+color: var(--text-black-light);
+font-weight: 300; 
+background: #f9fdf9;
+padding: 15px;
+border-radius: 15px;
+border: 1px dashed var(--accent-green);
+text-align: left;
+}
+
+.question-group {
+margin-bottom: 25px;
+}
+
+label.question-title {
+display: block;
+font-weight: 700; 
+color: var(--text-black-bold);
+margin-bottom: 12px;
+font-size: 1.05rem;
+}
+
+.hint {
+font-size: 0.8rem;
+color: #888;
+font-weight: 300; 
+display: block;
+margin-bottom: 12px;
+}
+
+.options {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.option-item {
+display: flex;
+align-items: center;
+padding: 14px 18px;
+background: #fff;
+border: 2px solid #f0f0f0;
+border-radius: 18px; 
+cursor: pointer;
+transition: all 0.2s ease;
+font-weight: 300;
+color: var(--text-black-light);
+}
+
+.option-item input {
+position: absolute;
+opacity: 0;
+}
+
+.checkmark {
+height: 18px;
+width: 18px;
+background-color: #eee;
+border-radius: 50%; 
+margin-right: 12px;
+border: 2px solid #e0e0e0;
+flex-shrink: 0;
+}
+
+.option-item input:checked ~ .checkmark {
+background-color: var(--accent-green);
+border-color: var(--accent-green);
+}
+
+input[type="text"] {
+width: 100%;
+padding: 14px 18px;
+border: 2px solid #f0f0f0;
+border-radius: 18px;
+box-sizing: border-box;
+font-size: 1rem;
+font-weight: 300;
+}
+
+button {
+width: 100%;
+padding: 16px;
+background-color: var(--accent-green);
+color: white;
+border: none;
+border-radius: 30px;
+font-size: 1.1rem;
+font-weight: 700;
+cursor: pointer;
+margin-top: 20px;
+box-shadow: 0 5px 15px rgba(174, 213, 129, 0.4);
+}
+
+footer {
+text-align: center;
+padding: 20px 0;
+font-size: 0.8rem;
+color: #bbb;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<header>
+<h1>Carry home 選品大調查 
+</h1>
+<div class="intro">
+謝謝你支持 Carry home！
+<br>
+我們想更了解你的喜好，讓你最愛的小東西都能輕鬆帶回家。
+</div>
+
+<label class="option-item"><input type="radio" name="IG互動意願" value="是" required><span class="checkmark"></span>是</label>
+<label class="option-item"><input type="radio" name="IG互動意願" value="否"><span class="checkmark"></span>否</label>
+</div>
+</div>
+
+<button type="submit">送出調查 
+</button>
+</form>
+<footer>© Carry home Selection 
+</footer>
+</div>
+
+<script>
+function limitCheck(name, max) {
+const checks = document.querySelectorAll(`input[name="${name}"]`);
+checks.forEach(cb => {
+cb.addEventListener('change', () => {
+const count = document.querySelectorAll(`input[name="${name}"]:checked`).length;
+if (count > max) { cb.checked = false; alert(`這個項目最多只能選 ${max} 個喔！
+`); }
+});
+});
+}
+limitCheck('主題類別', 3);
+limitCheck('下單原因', 2);
+</script>
+
+</body>
+</html>
