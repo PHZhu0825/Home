@@ -1,96 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Carry home 選品大調查
-</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carry home 選品大調查 🎁</title>
 <style>
 :root {
---bg-color: #f1f8e9; 
---accent-green: #aed581; 
---paper-color: #ffffff; 
---text-black-bold: #000000; 
---text-black-light: #333333; 
-}
-
-/* 修正滑動問題：確保 html 和 body 允許滾動 */
-html, body {
-height: auto;
-min-height: 100%;
-overflow-x: hidden;
-overflow-y: auto;
-background-color: var(--bg-color);
+--bg-color: #f1f8e9;
+--accent-green: #aed581;
+--paper-color: #ffffff;
+--text-black-bold: #000000;
+--text-black-light: #333333;
 }
 
 body {
 font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+background-color: var(--bg-color);
 margin: 0;
-padding: 20px 10px;
+padding: 20px 15px;
 display: flex;
-justify-content: center;
+flex-direction: column;
+align-items: center;
 }
 
 .container {
 max-width: 500px;
 width: 100%;
 background: var(--paper-color);
-padding: 30px 20px;
-border-radius: 30px; 
-box-shadow: 0 10px 25px rgba(174, 213, 129, 0.2); 
+padding: 30px 25px;
+border-radius: 30px;
+box-shadow: 0 10px 25px rgba(174, 213, 129, 0.2);
 box-sizing: border-box;
-margin-bottom: 20px; /* 增加底部間距 */
 }
 
 header {
 text-align: center;
-margin-bottom: 25px;
+margin-bottom: 30px;
 }
 
 h1 {
 font-size: 1.5rem;
 color: var(--text-black-bold);
-font-weight: 900; 
+font-weight: 900;
 margin: 0 0 15px 0;
 }
 
 .intro {
-font-size: 0.9rem;
+font-size: 0.95rem;
 line-height: 1.6;
 color: var(--text-black-light);
-font-weight: 300; 
 background: #f9fdf9;
 padding: 15px;
 border-radius: 15px;
 border: 1px dashed var(--accent-green);
-text-align: left;
 }
 
 .question-group {
 margin-bottom: 25px;
+text-align: left;
 }
 
 label.question-title {
 display: block;
-font-weight: 700; 
+font-weight: 700;
 color: var(--text-black-bold);
 margin-bottom: 12px;
-font-size: 1.05rem;
+font-size: 1.1rem;
 }
 
 .hint {
-font-size: 0.8rem;
+font-size: 0.85rem;
 color: #888;
-font-weight: 300; 
 display: block;
+margin-top: -8px;
 margin-bottom: 12px;
 }
 
 .options {
 display: flex;
 flex-direction: column;
-gap: 10px;
+gap: 12px;
 }
 
 .option-item {
@@ -99,60 +88,53 @@ align-items: center;
 padding: 14px 18px;
 background: #fff;
 border: 2px solid #f0f0f0;
-border-radius: 18px; 
+border-radius: 20px;
 cursor: pointer;
-transition: all 0.2s ease;
-font-weight: 300;
+transition: 0.2s;
 color: var(--text-black-light);
+font-size: 1rem;
 }
 
-.option-item input {
-position: absolute;
-opacity: 0;
-}
-
-.checkmark {
-height: 18px;
-width: 18px;
-background-color: #eee;
-border-radius: 50%; 
-margin-right: 12px;
-border: 2px solid #e0e0e0;
-flex-shrink: 0;
-}
-
-.option-item input:checked ~ .checkmark {
-background-color: var(--accent-green);
+.option-item:hover {
 border-color: var(--accent-green);
+}
+
+input[type="checkbox"], input[type="radio"] {
+margin-right: 12px;
+width: 18px;
+height: 18px;
+accent-color: var(--accent-green);
 }
 
 input[type="text"] {
 width: 100%;
-padding: 14px 18px;
+padding: 15px;
 border: 2px solid #f0f0f0;
-border-radius: 18px;
+border-radius: 15px;
 box-sizing: border-box;
 font-size: 1rem;
-font-weight: 300;
 }
 
 button {
 width: 100%;
-padding: 16px;
+padding: 18px;
 background-color: var(--accent-green);
 color: white;
 border: none;
 border-radius: 30px;
-font-size: 1.1rem;
+font-size: 1.2rem;
 font-weight: 700;
 cursor: pointer;
 margin-top: 20px;
 box-shadow: 0 5px 15px rgba(174, 213, 129, 0.4);
 }
 
+button:hover {
+background-color: #9ccc65;
+}
+
 footer {
-text-align: center;
-padding: 20px 0;
+margin-top: 30px;
 font-size: 0.8rem;
 color: #bbb;
 }
@@ -162,39 +144,91 @@ color: #bbb;
 
 <div class="container">
 <header>
-<h1>Carry home 選品大調查 
-</h1>
+<h1>Carry home 選品大調查 🎁</h1>
 <div class="intro">
-謝謝你支持 Carry home！
-<br>
+謝謝你支持 Carry home！🐾<br>
 我們想更了解你的喜好，讓你最愛的小東西都能輕鬆帶回家。
 </div>
+</header>
 
-<label class="option-item"><input type="radio" name="IG互動意願" value="是" required><span class="checkmark"></span>是</label>
-<label class="option-item"><input type="radio" name="IG互動意願" value="否"><span class="checkmark"></span>否</label>
+<form action="https://formspree.io/f/mqakezql" method="POST" id="surveyForm">
+
+<div class="question-group">
+<label class="question-title">1-1. 平時最常關注的主題類別？</label>
+<span class="hint">(最多選3個)</span>
+<div class="options">
+<label class="option-item"><input type="checkbox" name="主題" value="玩具總動員">玩具總動員</label>
+<label class="option-item"><input type="checkbox" name="主題" value="湯姆貓與傑利鼠">湯姆貓與傑利鼠</label>
+<label class="option-item"><input type="checkbox" name="主題" value="史努比">史努比</label>
+<label class="option-item"><input type="checkbox" name="主題" value="麵包超人">麵包超人</label>
+<label class="option-item"><input type="checkbox" name="主題" value="蠟筆小新">蠟筆小新</label>
+<label class="option-item"><input type="checkbox" name="主題" value="海綿寶寶">海綿寶寶</label>
+<label class="option-item"><input type="checkbox" name="主題" value="小小兵">小小兵</label>
+<label class="option-item"><input type="checkbox" name="主題" value="其他">其他</label>
 </div>
 </div>
 
-<button type="submit">送出調查 
-</button>
+<div class="question-group">
+<label class="question-title">1-2. 通常吸引你下單的原因？</label>
+<span class="hint">(最多選2個)</span>
+<div class="options">
+<label class="option-item"><input type="checkbox" name="原因" value="視覺好看">視覺好看</label>
+<label class="option-item"><input type="checkbox" name="原因" value="實用性高">實用性高</label>
+<label class="option-item"><input type="checkbox" name="原因" value="價格親民">價格親民</label>
+<label class="option-item"><input type="checkbox" name="原因" value="台灣買不到">台灣買不到</label>
+</div>
+</div>
+
+<div class="question-group">
+<label class="question-title">2-1. 你最偏好的風格？</label>
+<div class="options">
+<label class="option-item"><input type="radio" name="風格" value="生活實用型" required>生活實用型</label>
+<label class="option-item"><input type="radio" name="風格" value="擺飾可愛型">擺飾可愛型</label>
+<label class="option-item"><input type="radio" name="風格" value="其他">其他</label>
+</div>
+</div>
+
+<div class="question-group">
+<label class="question-title">2-2. 最近想找什麼樣的商品？</label>
+<input type="text" name="許願" placeholder="例如：手機殼、收納盒...">
+</div>
+
+<div class="question-group">
+<label class="question-title">3. 對於「Carry home」的預算？</label>
+<div class="options">
+<label class="option-item"><input type="radio" name="預算" value="100-300" required>100-300</label>
+<label class="option-item"><input type="radio" name="預算" value="300-600">300-600</label>
+<label class="option-item"><input type="radio" name="預算" value="600-1000">600-1000</label>
+<label class="option-item"><input type="radio" name="預算" value="1000以上">1000以上</label>
+</div>
+</div>
+
+<div class="question-group">
+<label class="question-title">4. 是否希望在限動舉辦投票？</label>
+<div class="options">
+<label class="option-item"><input type="radio" name="二選一" value="是" required>是</label>
+<label class="option-item"><input type="radio" name="二選一" value="否">否</label>
+</div>
+</div>
+
+<button type="submit">送出調查 💌</button>
 </form>
-<footer>© Carry home Selection 
-</footer>
+<footer>© Carry home Selection 🌱</footer>
 </div>
 
 <script>
+// 限制複選數量
 function limitCheck(name, max) {
 const checks = document.querySelectorAll(`input[name="${name}"]`);
 checks.forEach(cb => {
 cb.addEventListener('change', () => {
 const count = document.querySelectorAll(`input[name="${name}"]:checked`).length;
-if (count > max) { cb.checked = false; alert(`這個項目最多只能選 ${max} 個喔！
-`); }
+if (count > max) { cb.checked = false; alert(`這個項目最多只能選 ${max} 個喔！💖`); }
 });
 });
 }
-limitCheck('主題類別', 3);
-limitCheck('下單原因', 2);
+limitCheck('主題', 3);
+limitCheck('原因', 2);
 </script>
 
 </body>
